@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% load static %} {% block 'contenido' %}
-{% csrf_token %}
+{% extends 'base.html' %} {% load static %} {% block 'contenido' %} 
+{%csrf_token %}
 <!-- DataTables -->
 <link
   rel="stylesheet"
@@ -40,28 +40,26 @@
     padding: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
-  
 </style>
-<section class="content-header"></section>
-<section class="content"style="background-color:">
+<section class="content" style="background-color: ">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <div class="row mb-4">
+            <div class="row mb-12">
               <div class="col text-center">
                 <img
                   src="{% static '../static/recursos/logo_institucion.png' %}"
                   alt="Logo de la Institución"
                   class="img-fluid"
-                  style="max-width: 80px"
+                  style="max-width: 55px"
                 />
               </div>
             </div>
-            <div class="row mb-4">
+            <div class="row mb-12">
               <div class="col text-center">
-                <h4 class="display-4">Guía Telefónica del Ejército</h4>
+                <h4>Guía Telefónica del Ejército</h4>
               </div>
             </div>
             <div class="row mb-12">
@@ -70,49 +68,41 @@
                   type="text"
                   id="search-input"
                   class="form-control"
-                  placeholder="Buscar en la tabla..."
+                  placeholder="Buscar numero telefonico..."
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Resultados de la búsqueda</h3>
-          </div>
-          <div class="card-body">
-            <table
-              id="example1"
-              class="table table-bordered table-striped table-sm compact-table small"
-            >
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Grado</th>
-                  <th>Nombre</th>
-                  <th>Unidad</th>
-                  <th>Cargo Actual</th>
-                  <th>Tel. Celular</th>
-                </tr>
-              </thead>
-              <tbody id="contactosBody">
-                {% for contacto in contactos %}
-                <tr>
-                  <td>{{ forloop.counter }}</td>
-                  <td>{{ contacto.grado }}</td>
-                  <td>{{ contacto.nom_ape }}</td>
-                  <td>{{ contacto.unidad }}</td>
-                  <td>{{ contacto.cargo_actual }}</td>
-                  <td>{{ contacto.tel_celular }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <br />
+            <div class="row">
+              <div class="col-12">
+                <table
+                  id="example1"
+                  class="table table-bordered table-striped table-sm compact-table small"
+                >
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Grado</th>
+                      <th>Nombre</th>
+                      <th>Unidad</th>
+                      <th>Cargo Actual</th>
+                      <th>Tel. Celular</th>
+                    </tr>
+                  </thead>
+                  <tbody id="contactosBody">
+                    {% for contacto in contactos %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ contacto.grado }}</td>
+                      <td>{{ contacto.nom_ape }}</td>
+                      <td>{{ contacto.unidad }}</td>
+                      <td>{{ contacto.cargo_actual }}</td>
+                      <td>{{ contacto.tel_celular }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
